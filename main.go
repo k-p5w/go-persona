@@ -50,7 +50,7 @@ func main() {
 }
 
 func Handle(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<h1>Hello from Go!</h1>")
+	fmt.Fprintf(w, "<h1>Hello-from-Go!!!</h1>")
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
