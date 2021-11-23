@@ -6,11 +6,10 @@ import (
 	"os"
 
 	persona "github.com/k-p5w/go-persona/api"
-	"github.com/k-p5w/go-persona/api/corelogic"
 )
 
 func main() {
-	var ci corelogic.CardInfo
+	var ci persona.CardInfo
 
 	ci.Name = "main()"
 	// vercel だとgo runされないっぽいな、wasm的な感じをつくればいいのかなぁ
