@@ -24,8 +24,11 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	mainD := DeckMake()
 	myURL := r.URL.Path
-	subD := "Sub"
-	startPage := "<h1>Hey from Go!</h1>" + mainD.Name + subD
+
+	q := r.URL.Query()
+	v := q.Get("actor")
+
+	startPage := "<h1>Hey from Go!</h1>" + mainD.Name + v
 	fmt.Fprintf(w, startPage)
 
 	if myURL != "/api" {

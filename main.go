@@ -13,7 +13,7 @@ func main() {
 
 	ci.Name = "main()"
 	// vercel だとgo runされないっぽいな、wasm的な感じをつくればいいのかなぁ
-	http.Handle("/data", http.FileServer(http.Dir("static")))
+	http.Handle("/", http.FileServer(http.Dir("static")))
 
 	http.HandleFunc("/api", persona.Handler)
 	port := os.Getenv("PORT")
