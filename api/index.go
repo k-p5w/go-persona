@@ -10,9 +10,10 @@ import (
 // Handler is Vercelにデプロイした時に「/api」でここが呼ばれる
 func Handler(w http.ResponseWriter, r *http.Request) {
 
-	a := corelogic.DeckMake()
+	mainD := corelogic.DeckMake()
 	myURL := r.URL.Path
-	startPage := "<h1>Hey from Go!</h1>" + a.Name
+	subD := "Sub"
+	startPage := "<h1>Hey from Go!</h1>" + mainD.Name + subD
 	fmt.Fprintf(w, startPage)
 
 	if myURL != "/api" {
