@@ -5,6 +5,20 @@ import (
 	"net/http"
 )
 
+type CardInfo struct {
+	Name string
+	Job  string
+	Cost int
+}
+
+func DeckMake() CardInfo {
+	var ci CardInfo
+
+	ci.Name = "func DeckMake() "
+
+	return ci
+}
+
 // Handler is Vercelにデプロイした時に「/api」でここが呼ばれる
 func Handler(w http.ResponseWriter, r *http.Request) {
 
