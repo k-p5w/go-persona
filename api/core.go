@@ -1,4 +1,4 @@
-package corelogic
+package persona
 
 type CardInfo struct {
 	Name string

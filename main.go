@@ -16,7 +16,7 @@ func main() {
 	// vercel だとgo runされないっぽいな、wasm的な感じをつくればいいのかなぁ
 	http.Handle("/data", http.FileServer(http.Dir("static")))
 
-	http.HandleFunc("/start", persona.Handler)
+	http.HandleFunc("/api", persona.Handler)
 	port := os.Getenv("PORT")
 	fmt.Println(port)
 	if port == "" {
