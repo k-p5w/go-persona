@@ -28,7 +28,9 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	q := r.URL.Query()
 	v := q.Get("actor")
 
-	startPage := "<h1>Hey from Go!</h1>" + mainD.Name + v
+	fv := r.FormValue("actorItem")
+
+	startPage := "<h1>Hey from Go!</h1>" + mainD.Name + v + fv
 	fmt.Fprintf(w, startPage)
 
 	if myURL != "/api" {
