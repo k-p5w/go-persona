@@ -6,12 +6,15 @@ import (
 	"os"
 
 	persona "github.com/k-p5w/go-persona/api"
+	"github.com/k-p5w/go-persona/api/corelogic"
 )
 
 func main() {
+	var ci corelogic.CardInfo
 
+	ci.Name = "main()"
 	// vercel だとgo runされないっぽいな、wasm的な感じをつくればいいのかなぁ
-	http.Handle("/", http.FileServer(http.Dir("static")))
+	http.Handle("/data", http.FileServer(http.Dir("static")))
 
 	http.HandleFunc("/start", persona.Handler)
 	port := os.Getenv("PORT")
