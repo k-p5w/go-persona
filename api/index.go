@@ -31,8 +31,9 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	mainD := DeckMake(v)
 
-	startPage := "<h1>Hey from Go!</h1>" + mainD.Name + v + fv
-
+	startPage := "<h1>Hey from Go!</h1>" + mainD.Name + v + fv + "<br>" + myURL
+	imgTag := fmt.Sprintf(`<img src="/data/%s.svg" />`, v)
+	startPage = startPage + imgTag
 	// HTMLを描画
 	fmt.Fprintf(w, startPage)
 
