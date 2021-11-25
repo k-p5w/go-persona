@@ -15,13 +15,14 @@ func DeckMake(s string) CardInfo {
 	var ci CardInfo
 
 	ci.Name = s
+	ci.Job = "ALL"
 	createSVG(ci)
 	return ci
 }
 
 // Handler is Vercelにデプロイした時に「/api」でここが呼ばれる
 func Handler(w http.ResponseWriter, r *http.Request) {
-
+	fmt.Println("Handler-start.")
 	myURL := r.URL.Path
 
 	q := r.URL.Query()
@@ -29,7 +30,13 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	fv := r.FormValue("actorItem")
 
-	mainD := DeckMake(v)
+	// item情報をセットする
+	item := v
+	if len(v) > 0 {
+		item = v
+	}
+
+	mainD := DeckMake(item)
 
 	startPage := "<h1>Hey from Go!</h1>" + mainD.Name + v + fv + "<br>" + myURL
 	imgTag := fmt.Sprintf(`<img src="/data/%s.svg" />`, v)
@@ -45,6 +52,8 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 // SvgHandler is Vercelにデプロイした時に「/api」でここが呼ばれる
 func SvgHandler(w http.ResponseWriter, r *http.Request) {
+
+	fmt.Println("SvgHandler-start.")
 
 	myURL := r.URL.Path
 

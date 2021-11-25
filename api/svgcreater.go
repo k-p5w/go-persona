@@ -4,17 +4,18 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"path/filepath"
 
 	svg "github.com/ajstarks/svgo"
 )
 
 func createSVG(rec CardInfo) {
-
+	fmt.Printf("createSVG-start.%v \n", rec.Name)
 	svgStyle := map[string]string{}
 
 	// useAndroid()
-	// svgfilename := filepath.Join(SVGdir, "%s.svg")
-	svgfilename := "%s.svg"
+	svgfilename := filepath.Join("storage", "%s.svg")
+	// svgfilename := "%s.svg"
 	f, err := os.Create(fmt.Sprintf(svgfilename, rec.Name))
 	if err != nil {
 		panic(err)

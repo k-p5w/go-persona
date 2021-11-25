@@ -14,7 +14,7 @@ func main() {
 	ci.Name = "main()"
 	// vercel だとgo runされないっぽいな、wasm的な感じをつくればいいのかなぁ
 	http.Handle("/", http.FileServer(http.Dir("static")))
-	fs := http.FileServer(http.Dir("./static"))
+	fs := http.FileServer(http.Dir("./storage"))
 	http.Handle("/data/", http.StripPrefix("/data/", fs))
 
 	http.HandleFunc("/api", persona.Handler)
