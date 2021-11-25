@@ -51,7 +51,7 @@ func createSVG(rec CardInfo) {
 	svgStyle["fill"] = "black"
 	const itemStyleBase = "text-anchor:start;font-size:%dpx; writing-mode:%s;fill:black"
 	itemStyle := fmt.Sprintf(itemStyleBase, fontSize, "lr")
-	itemText := fmt.Sprintf("%s【%d】(%d)", rec.Name, rec.Job, rec.Cost)
+	itemText := fmt.Sprintf("%s【%s】(%d)", rec.Name, rec.Job, rec.Cost)
 	// 横位置
 	posX := 10
 	// 縦位置
