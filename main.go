@@ -16,6 +16,7 @@ func main() {
 	http.Handle("/", http.FileServer(http.Dir("static")))
 
 	http.HandleFunc("/api", persona.Handler)
+	http.HandleFunc("/viewActor", persona.SvgHandler)
 	port := os.Getenv("PORT")
 	fmt.Println(port)
 	if port == "" {
